@@ -1,0 +1,29 @@
+#main-content {
+    width: 100vw;
+    height: 80vh;
+    background-color: blanchedalmond;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#main-content #container {
+    bottom: 0;
+    width: 75%;
+    height: 60%;
+}
+
+#main-content #container p {
+    font-size: 48px;
+
+}
+
+#see-more {
+    width: 150px;
+    height: 40px;
+    background-color: green;
+    margin: auto 0;
+    cursor: pointer;
+}
