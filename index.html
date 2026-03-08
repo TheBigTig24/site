@@ -21,6 +21,8 @@
 
     <!-- Scripts -->
     <script src="scripts/index.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=%%&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
 </head>
 <body>
 
@@ -71,7 +73,9 @@
 
     <!-- Travel Tab -->
     <div id="travel">
-
+        <gmp-map center="40.12150192260742,-100.45039367675781" zoom="4" map-id="DEMO_MAP_ID">
+            <gmp-advanced-marker position="40.12150192260742,-100.45039367675781" title="My location"></gmp-advanced-marker>
+        </gmp-map>
     </div>
 
     <!-- Contact Tab -->
