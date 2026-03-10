@@ -4,10 +4,10 @@ import '../styles/navbar.css';
 interface NavbarProps {
     onScroll: (ref: React.RefObject<HTMLDivElement | null>) => void;
     refs: {
+        aboutMeSectionRef: React.RefObject<HTMLDivElement | null>;
         experienceSectionRef: React.RefObject<HTMLDivElement | null>;
         projectSectionRef: React.RefObject<HTMLDivElement | null>;
         travelSectionRef: React.RefObject<HTMLDivElement | null>;
-        contactSectionRef: React.RefObject<HTMLDivElement | null>;
     }
 }
 
@@ -37,10 +37,10 @@ const Navbar: React.FC<NavbarProps> = ({ onScroll,  refs }) => {
             <p>Caleb Chung</p>
             <div id="tab-list">
                 <ul id="unordered_tab_list">
+                    <li><button onClick={() => onScroll(refs.aboutMeSectionRef)} className='nav-btn'>ABOUT ME</button></li>
                     <li><button onClick={() => onScroll(refs.experienceSectionRef)} className='nav-btn'>EXPERIENCE</button></li>
                     <li><button onClick={() => onScroll(refs.projectSectionRef)} className='nav-btn'>PROJECTS</button></li>
                     <li><button onClick={() => onScroll(refs.travelSectionRef)} className='nav-btn'>TRAVEL</button></li>
-                    <li><button onClick={() => onScroll(refs.contactSectionRef)} className='nav-btn'>CONTACT</button></li>
                 </ul>
             </div>
         </div>

@@ -5,6 +5,7 @@ interface ProjectItem {
     title: string;
     role: string;
     points: string[];
+    link: string;
 }
 
 const Project = forwardRef<HTMLDivElement>((props, ref) => {
@@ -17,7 +18,8 @@ const Project = forwardRef<HTMLDivElement>((props, ref) => {
                 "Developed a team-matching and registration platform used by 700+ participants at Cal Poly Pomona's BroncoHacks 2025.",
                 "Utilized React TypeScript, Tailwind CSS to create a responsive UI.",
                 "Implemented RESTful API using Flask to manage secure user authentication and CRUD operations, optimizing data persistence with SQLite."
-            ]
+            ],
+            link: 'https://www.broncohacksportal.org'
         },
         {
             title: 'BroncoHacks Website 2026',
@@ -26,7 +28,8 @@ const Project = forwardRef<HTMLDivElement>((props, ref) => {
                 "Developed a frontend static website viewed by 1000+ participants for Cal Poly Pomona's BroncoHacks 2026.",
                 "Led 6-person frontend development team, allowing for a two-week deployment of the MVP.",
                 "Conducted code reviews, maintaining high standards of code quality and ensuring detailed design."
-            ]
+            ],
+            link: 'https://broncohacks.org/'
         }
     ]);
 

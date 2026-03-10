@@ -7,11 +7,15 @@
     justify-content: center;
 }
 
-#travel p {
+#travel #title {
     font-weight: 600;
     font-size: 48px;
     color: black;
     margin: 3rem auto 0 auto;
+}
+
+#travel p {
+    
 }
 
 #gmap {

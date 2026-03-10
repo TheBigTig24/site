@@ -41,4 +41,40 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    color: rgb(105, 105, 105);
+}
+
+.nav-btn:hover {
+    color: black;
+}
+
+.nav-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-image: linear-gradient(to left, black, white);
+    transition: width 0.3s ease;
+}
+
+.nav-btn:hover::before {
+    width: 100%;
+}
+
+.nav-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, black, white);
+    transition: width 0.3s ease;
+}
+
+.nav-btn:hover::after {
+    width: 100%;
 }

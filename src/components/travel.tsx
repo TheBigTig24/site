@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useMemo, useState } from 'react';
 import '../styles/travel.css';
 import { APIProvider, Map as MapComponent, AdvancedMarker, Pin } from '@vis.gl/react-google-maps';
 
@@ -11,11 +11,14 @@ const Travel = forwardRef<HTMLDivElement>((props, ref) => {
     const [defaultPos, setDefaultPos] = useState<Coordinates>();
 
     const [mapLocations, setMapLocations] = useState<Map<string, Coordinates>>(new Map());
-    const locations = [
-        '32 City Garden Rd, North Point, Hong Kong',
+    const [locations, setLocations] = useState<string[]>([
+        '1 Lugard Road, Victoria Peak, HK',
         '20 W 34th St., New York, NY',
         '400 Broad St, Seattle, WA',
-    ];
+        'Haizhu Square, Guangzhou, China',
+        'Tokyo Skytree',
+        'Disneyworld, FL'
+    ]);
 
     useEffect(() => {
         locations.forEach((loc) => {
@@ -46,25 +49,27 @@ const Travel = forwardRef<HTMLDivElement>((props, ref) => {
         });
     }, []);
 
-    useEffect(() => {
+    const memoizedDefCenter = useMemo(() => {
+        if (!mapLocations || mapLocations.size === 0) return { lat: 0, lng: 0 };
         let averageLat: number = 0;
         let averageLng: number = 0;
         Array.from(mapLocations.values()).forEach((val: Coordinates) => {
-            averageLat +=val.lat;
+            averageLat += val.lat;
             averageLng += val.lng;
-        });
+        })
         let size: number = mapLocations.size;
         const coords: Coordinates = { lat: averageLat / size, lng: averageLng / size };
-        setDefaultPos(coords);
-    }, [mapLocations]);
+        return coords;
+    }, [mapLocations])
 
     return (<>
         <div ref={ref} id='travel'>
-            <p>TRAVEL</p>
+            <p id='title'>TRAVEL</p>
+            <p>I enjoy traveling with my loved ones, so take a look at some of the places that I've visited before!</p>
             <APIProvider apiKey={import.meta.env.VITE_GMAPS_API_KEY}>
                 <div id='gmap'>
                     <MapComponent 
-                        defaultCenter={{ lat: defaultPos?.lat, lng: defaultPos?.lng }}
+                        defaultCenter={memoizedDefCenter}
                         defaultZoom={3}
                         mapId={import.meta.env.VITE_GMAPS_MAP_ID}
                         >

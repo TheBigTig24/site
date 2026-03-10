@@ -33,7 +33,9 @@ html {
 #navbar,
 #main-content,
 #experience,
-#projects {
+#travel,
+#projects,
+#about-me {
   scroll-margin-top: 8vh;
 }
 
@@ -41,6 +43,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 @media (prefers-color-scheme: light) {
