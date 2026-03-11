@@ -37,6 +37,13 @@ const AboutMe = forwardRef<HTMLDivElement>((props, ref) => {
                     </div>
                 ))}
             </div>
+            <div className='vertical-line'></div>
+            <div id='description'>
+                <p>From a young age, I've always enjoyed learning and solving logic problems. After dipping my feet into computer science and programming in senior year of high school, I aimed to pursue a career in software development.
+                    In university, I gained an interest in web development, in which I hope to find an entry level job as well as continue to hone my abilities in personal projects. In my free time, I most enjoy spending time with my loved ones,
+                    doing things from eating out to playing games to golfing at the range!
+                </p>
+            </div>
         </div>
     </div>
     </>);

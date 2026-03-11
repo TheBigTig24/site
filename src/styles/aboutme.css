@@ -7,6 +7,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    --vertical-line-color: black;
 }
 
 #about-me #title-text {
@@ -21,6 +23,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
 #my_img {
@@ -63,4 +67,41 @@
 
 .social-item i {
     margin-right: 10px;
+}
+
+@property --line-light-percentage {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
+}
+
+.vertical-line {
+    width: 2px;
+    height: 200px;
+    background-image: linear-gradient(
+        var(--vertical-line-color) 0%,
+        var(--vertical-line-color) calc(var(--line-light-percentage) - 10%),
+        lightgreen var(--line-light-percentage),
+        var(--vertical-line-color) calc(var(--line-light-percentage) + 10%),
+        var(--vertical-line-color) 100%
+    );
+    margin: 0 1rem;
+    animation: line-light 2s infinite alternate;
+}
+
+@keyframes line-light {
+    from {
+        --line-light-percentage: -2%;
+    }
+    to {
+        --line-light-percentage: 102%;
+    }
+}
+
+#about-me #description {
+    width: 30%;
+}
+
+#description p {
+    font-size: 15px;
 }
