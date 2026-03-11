@@ -6,6 +6,7 @@ interface ProjectItem {
     role: string;
     points: string[];
     link: string;
+    repoLink: string;
 }
 
 const Project = forwardRef<HTMLDivElement>((props, ref) => {
@@ -19,7 +20,8 @@ const Project = forwardRef<HTMLDivElement>((props, ref) => {
                 "Utilized React TypeScript, Tailwind CSS to create a responsive UI.",
                 "Implemented RESTful API using Flask to manage secure user authentication and CRUD operations, optimizing data persistence with SQLite."
             ],
-            link: 'https://www.broncohacksportal.org'
+            link: 'https://www.broncohacksportal.org',
+            repoLink: 'https://github.com/BroncoHacks-Website/BroncoHacks-Portal'
         },
         {
             title: 'BroncoHacks Website 2026',
@@ -29,7 +31,8 @@ const Project = forwardRef<HTMLDivElement>((props, ref) => {
                 "Led 6-person frontend development team, allowing for a two-week deployment of the MVP.",
                 "Conducted code reviews, maintaining high standards of code quality and ensuring detailed design."
             ],
-            link: 'https://broncohacks.org/'
+            link: 'https://broncohacks.org/',
+            repoLink: 'https://github.com/BroncoHacks-Website/BroncoHacks-Website',
         }
     ]);
 
@@ -41,7 +44,7 @@ const Project = forwardRef<HTMLDivElement>((props, ref) => {
                     {projectList.map((proj, index) => (
                         <div key={index} className="proj-item">
                             <p className="proj-title space-grotesk-text"><strong>{proj.title}</strong></p>
-                            <p className="proj-role space-grotesk-text"><i>{proj.role}</i></p>
+                            <p className="proj-role space-grotesk-text"><i>{proj.role}</i> | Link to Site <a href={proj.link} target="_blank" rel="noopener noreferrer"><i className=" proj-role-i fas fa-external-link"></i></a> | Link to Repo <a href={proj.repoLink} target="_blank" rel="noopener noreferrer"><i className="proj-role-i fas fa-external-link"></i></a></p>
                             <ul className="points">
                                 {proj.points.map((pt, index) => (
                                     <li key={index} className="pts space-grotesk-text">{pt}</li>

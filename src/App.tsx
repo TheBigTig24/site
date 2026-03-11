@@ -32,7 +32,7 @@ function App() {
         refs={{ aboutMeSectionRef, experienceSectionRef, projectSectionRef, travelSectionRef  }}/>
       <div ref={mainContentSectionRef} id='main-content'>
         <div id='container'>
-          <p className='main-content-text italianno-regular'>Welcome to Caleb's website!</p>
+          <p className='main-content-text montserrat-text'>Welcome to Caleb's website!</p>
           <button id='see-more' onClick={() => handleNavbarScroll(experienceSectionRef)}>
             <svg width="160px" height='50px' viewBox='0 0 160 50' className='border'>
               <rect x="0" y="0" width="160" height="50" rx="3"/>

@@ -39,6 +39,11 @@ const Travel = forwardRef<HTMLDivElement>((props, ref) => {
         'San Diego, CA'
     ]);
 
+    const [wantedLocations, setWantedLocations] = useState<Map<string, Coordinates>>(new Map());
+    const [wanted, setWanted] = useState<string[]>([
+        'Shanghai, CN'
+    ]);
+
     const [legendColors, setLegendColors] = useState<LegendColor[]>([
         {
             bgColor: 'red', bdColor: 'darkred', definition: 'Visited'
@@ -67,6 +72,33 @@ const Travel = forwardRef<HTMLDivElement>((props, ref) => {
                         setMapLocations(prevMap => {
                             const newMap = new Map(prevMap);
                             newMap.set(loc, coords);
+                            return newMap;
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error("ur mom", error);
+                });
+        });
+
+        wanted.forEach((elem) => {
+            let baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+            let mainUrl = elem.replaceAll(" ", "+");
+            let suffixUrl = "&key=" + import.meta.env.VITE_GMAPS_API_KEY;
+            fetch(baseUrl + mainUrl + suffixUrl)
+                .then((res) => {
+                    return res.json();
+                })
+                .then((res) => {
+                    const data = res.results[0].geometry.location;
+                    if (data) {
+                        let coords: Coordinates = {
+                            lat: data.lat,
+                            lng: data.lng,
+                        };
+                        setWantedLocations(prevMap => {
+                            const newMap = new Map(prevMap);
+                            newMap.set(elem, coords);
                             return newMap;
                         });
                     }
@@ -104,6 +136,11 @@ const Travel = forwardRef<HTMLDivElement>((props, ref) => {
                             >
                             {Array.from(mapLocations.entries()).map( ([location, coords], index) => (
                                 <AdvancedMarker key={index} position={{lat: coords.lat, lng: coords.lng }}></AdvancedMarker>
+                            ))}
+                            {Array.from(wantedLocations.entries()).map( ([location, coords], index) => (
+                                <AdvancedMarker key={index} position={{lat: coords.lat, lng: coords.lng }}>
+                                    <Pin background={'blue'} glyphColor={'darkblue'} borderColor={'blue'}/>
+                                </AdvancedMarker>
                             ))}
                         </MapComponent>
                     </div>
