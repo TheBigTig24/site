@@ -1,6 +1,6 @@
 #travel {
     width: 100vw;
-    height: 60vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,8 +14,12 @@
     margin: 3rem auto 0 auto;
 }
 
-#travel p {
-    
+#map-container {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #gmap {
@@ -23,4 +27,44 @@
     width: 80%;
     height: 80%;
     border: 1px solid black;
+}
+
+#legend {
+    flex-grow: 1;
+    max-height: 80%;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#legend h3 {
+    margin: .5rem 0 .2rem 0;
+}
+
+#legend div {
+    display: flex;
+    flex-direction: row;
+}
+
+.legend-item {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem;
+}
+
+.legend-item button {
+    width: 25px;
+    height: 25px;
+    outline: none;
+    border: 2px solid darkred;
+    border-radius: 5px;
+}
+
+.legend-item p {
+    font-size: 14x;
+    margin-left: .25rem;
+    white-space: nowrap;
 }
