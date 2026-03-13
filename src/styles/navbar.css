@@ -43,11 +43,11 @@
     align-items: center;
     position: relative;
     /* color: rgb(105, 105, 105); */
-    color: #5C4033;
+    color: #193744;
 }
 
 .nav-btn:hover {
-    color: #473025;
+    color: #0a2330;
 }
 
 .nav-btn::before {
@@ -58,7 +58,7 @@
     width: 0;
     height: 2px;
     /* background-image: linear-gradient(to left, #576C79, white); */
-    background-image: linear-gradient(to left, #7c5847, #473025);
+    background-image: linear-gradient(to left, #ffffff, #193744);
     transition: width 0.3s ease;
 }
 
@@ -74,7 +74,7 @@
     width: 0;
     height: 2px;
     /* background-image: linear-gradient(to right, #576C79, white); */
-    background-image: linear-gradient(to right, #7c5847, #473025);
+    background-image: linear-gradient(to right, #ffffff, #193744);
     transition: width 0.3s ease;
 }
 
