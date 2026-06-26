@@ -1,60 +1,41 @@
 import { forwardRef, useState } from "react";
 import '../styles/projects.css';
-
-interface ProjectItem {
-    title: string;
-    role: string;
-    points: string[];
-    link: string;
-    repoLink: string;
-}
+import { ProjectGridItem } from "./project_components/ProjectGridItem";
+import { ProjectList } from "../assets/data/ProjectData";
+import { CustomModal } from "./project_components/Modal";
+import type { ProjectItem } from "../interfaces/ProjectItem";
 
 const Project = forwardRef<HTMLDivElement>((props, ref) => {
 
-    const [projectList, setProjectList] = useState<ProjectItem[]>([
-        {
-            title: 'BroncoHacks Portal 2025',
-            role: 'Full Stack Developer',
-            points: [
-                "Developed a team-matching and registration platform used by 700+ participants at Cal Poly Pomona's BroncoHacks 2025.",
-                "Utilized React TypeScript, Tailwind CSS to create a responsive UI.",
-                "Implemented RESTful API using Flask to manage secure user authentication and CRUD operations, optimizing data persistence with SQLite."
-            ],
-            link: 'https://www.broncohacksportal.org',
-            repoLink: 'https://github.com/BroncoHacks-Website/BroncoHacks-Portal'
-        },
-        {
-            title: 'BroncoHacks Website 2026',
-            role: 'Technical Lead',
-            points: [
-                "Developed a frontend static website viewed by 1000+ participants for Cal Poly Pomona's BroncoHacks 2026.",
-                "Led 6-person frontend development team, allowing for a two-week deployment of the MVP.",
-                "Conducted code reviews, maintaining high standards of code quality and ensuring detailed design."
-            ],
-            link: 'https://broncohacks.org/',
-            repoLink: 'https://github.com/BroncoHacks-Website/BroncoHacks-Website',
-        }
-    ]);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [selected, setSelected] = useState<ProjectItem | null>(null);
 
     return(<>
         <div ref={ref} id="projects">
             <p id="title-text" className="space-grotesk-text">PROJECTS</p>
             <div id="project-content">
                 <div id="project-items">
-                    {projectList.map((proj, index) => (
-                        <div key={index} className="proj-item">
-                            <p className="proj-title space-grotesk-text"><strong>{proj.title}</strong></p>
-                            <p className="proj-role space-grotesk-text"><i>{proj.role}</i> | Link to Site <a href={proj.link} target="_blank" rel="noopener noreferrer"><i className=" proj-role-i fas fa-external-link"></i></a> | Link to Repo <a href={proj.repoLink} target="_blank" rel="noopener noreferrer"><i className="proj-role-i fas fa-external-link"></i></a></p>
-                            <ul className="points">
-                                {proj.points.map((pt, index) => (
-                                    <li key={index} className="pts space-grotesk-text">{pt}</li>
-                                ))}
-                            </ul>
-                        </div>
+                    {ProjectList.map((proj, index) => (
+                        <ProjectGridItem 
+                            key={index}
+                            idx={index}
+                            title={proj.title}
+                            role={proj.role}
+                            points={proj.points}
+                            link={proj.link}
+                            repoLink={proj.repoLink}
+                            imgSrc={proj.imgSrc}
+                            onModalToggle={{ setIsOpen, setSelected}}
+                        />
                     ))}
                 </div>
             </div>
         </div>
+        <CustomModal 
+            data={selected}
+            toggleVal={isOpen}
+            onModalToggle={setIsOpen}
+        />
     </>);
 });
 

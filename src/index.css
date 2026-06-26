@@ -11,6 +11,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --grid-item-color: rgba(44, 62, 80, 0.7);
+  --grid-item-hover: rgba(34, 51, 68, 1);
 }
 
 .italianno-regular {

@@ -20,3 +20,10 @@
 .proj-role-i {
     color: black;
 }
+
+#project-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}

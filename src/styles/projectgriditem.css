@@ -1,0 +1,74 @@
+.p-grid-item-outer {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
+    position: relative;
+}
+
+.p-grid-item-inner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+}
+
+.p-grid-item-inner button {
+    background-color: var(--grid-item-color);
+    outline: none;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.p-grid-item-inner button:hover {
+    background-color: var(--grid-item-hover);
+    color: white;
+}
+
+.p-grid-desc-opt {
+    height: 80%;
+}
+
+.grid-options-cont {
+    flex-grow: 1;
+}
+
+.p-grid-options {
+    width: 50%;
+    background-color: var(--grid-item-color);
+    border: 1px solid black;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-grid-options:hover {
+    background-color: var(--grid-item-hover);
+    color: white;
+}
+
+/* .p-grid-item-outer:hover {
+    opacity: 1;
+} */
+
+.p-grid-item-outer:hover .p-grid-item-inner {
+    visibility: visible;
+    opacity: 1;
+}
