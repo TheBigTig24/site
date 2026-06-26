@@ -33,7 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({ onScroll,  refs }) => {
     });
 
     return (<>
-        <div id="navbar" className={isScrolled ? 'scrolled' : ''}>
+        <div className={`navbar ${(isScrolled ? 'scrolled' : '')}`}>
             <p>Caleb Chung</p>
             <div id="tab-list">
                 <ul id="unordered_tab_list">
