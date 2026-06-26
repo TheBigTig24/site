@@ -1,5 +1,4 @@
 import { Description, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
-import { useState } from "react";
 import type { ProjectItem } from "../../interfaces/ProjectItem";
 import '../../styles/custommodal.css';
 
@@ -14,14 +13,17 @@ export const CustomModal = ({
 }: CustomModalProps & { toggleVal: boolean } & { onModalToggle: Function }) => {
     if (!data) return null;
 
-    const [projectData, setProjectData] = useState<ProjectItem | null>(data);
-
     return (<Dialog open={toggleVal} onClose={() => onModalToggle(false)} className="dialog">
-        <div className="dialog-cont">
+        <div className="dialog-cont space-grotesk-text">
             <DialogPanel className="dialog-panel">
-                <DialogTitle className="dialog-title">{projectData?.title}</DialogTitle>
+                <DialogTitle className="dialog-title">{data.title}</DialogTitle>
+                <DialogTitle className="dialog-role">{data.role}</DialogTitle>
                 <Description className="dialog-desc">
-                    hi
+                    <ul>
+                        {data.points.map((el) => (
+                            <li key={el}>{el}</li>
+                        ))}
+                    </ul>
                 </Description>
                 <button className="dialog-exit" onClick={() => onModalToggle(false)}>X</button>
             </DialogPanel>

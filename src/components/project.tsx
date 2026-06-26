@@ -25,7 +25,7 @@ const Project = forwardRef<HTMLDivElement>((props, ref) => {
                             link={proj.link}
                             repoLink={proj.repoLink}
                             imgSrc={proj.imgSrc}
-                            onModalToggle={{ setIsOpen, setSelected}}
+                            updateFn={{ updaters: {setIsOpen, setSelected } }}
                         />
                     ))}
                 </div>

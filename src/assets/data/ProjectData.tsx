@@ -1,6 +1,8 @@
 import { type ProjectItem } from "../../interfaces/ProjectItem";
 import BHacksPortal from '../project_pics/BHacksPortal.jpg';
 import BHacksSite from '../project_pics/BHacksSite.jpg';
+import TerminalChat from '../project_pics/TerminalChatroom.png';
+import SketchClassifier from '../project_pics/SketchClassifier.png';
 
 export const ProjectList: ProjectItem[] = [
     {
@@ -26,5 +28,29 @@ export const ProjectList: ProjectItem[] = [
             link: 'https://broncohacks.org/',
             repoLink: 'https://github.com/BroncoHacks-Website/BroncoHacks-Website',
             imgSrc: BHacksSite,
+        },
+        {
+            title: 'Terminal Chatroom',
+            role: 'Networks & Concurrency',
+            points: [
+                "Created client-server architecture using Python sockets and TCP protocols to send private messages and images through terminal.",
+                "Utilized multithreading to handle simultaneous connections and real-time broadcasting.",
+            ],
+            link: '',
+            repoLink: 'https://github.com/TheBigTig24/CS3800-chatroom',
+            imgSrc: TerminalChat,
+        },
+        {
+            title: 'Sketch Classifier',
+            role: 'Full Stack Developer',
+            points: [
+                "Developed full stack drawing classifier using React.js and FastAPI, leveraging HTML5 Canvas.",
+                "Presented live demonstration at Cal Poly Pomona's AI Fair 2026.",
+                "Engineered image-processing pipeline to resize and normalize canvas data, significantly improving model accuracy.",
+                "Implemented dynamic heatmap visualization to display coordinate density."
+            ],
+            link: '',
+            repoLink: 'https://github.com/TheBigTig24/quick-draw',
+            imgSrc: SketchClassifier,
         }
 ]
